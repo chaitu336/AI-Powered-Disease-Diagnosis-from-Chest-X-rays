@@ -1,0 +1,36 @@
+{% extends "import.html" %}
+{% block content %}
+
+<center>
+<br><h2>AI-Powered Disease Diagnosis</h2><br>
+
+<form id="upload-file" method="post" enctype="multipart/form-data">
+    <!-- Disease Selector -->
+    <label for="disease">Choose Disease:</label>
+    <select name="disease" id="disease" class="btn btn-primary">
+        <option value="pneumonia">Pneumonia</option>
+        <option value="brain">Brain Tumor</option>
+    </select><br><br>
+
+    <!-- File Upload -->
+    <input type="file" name="file" class="btn btn-success" id="imageUpload" accept=".png, .jpg, .jpeg">
+</form>
+
+<!-- Preview Image -->
+<div class="image-section" style="display:none;">
+    <img id="imagePreview" class="img-responsive" src="#" style="width:300px;height:300px;" /><br><br>
+    <div>
+        <button type="button" class="btn btn-info btn-lg" id="btn-predict">Predict!</button>
+    </div>
+</div>
+
+<!-- Loader & Result -->
+<div class="loader" style="display:none;"></div>
+<h3 id="result"><span> </span></h3>
+
+</center><br><br>
+
+<!-- ✅ Link to main.js -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% endblock %}
